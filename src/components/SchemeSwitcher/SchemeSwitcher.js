@@ -24,7 +24,7 @@ const allSchemes = {
 
 export default class SchemeSwitcher extends Component {
   state = {
-    currentSchemeLetter: 'A',
+    currentScheme: 'A',
     currentSchemeDetails: schemeA,
   }
 
@@ -62,7 +62,7 @@ export default class SchemeSwitcher extends Component {
             <button onClick={(e) => this.loadScheme(e)} data-scheme="E">Scheme E</button>
           </div>
           <div className={styles.switcher__graph}>
-            <ForceGraph />
+            <ForceGraph props={this.state.currentSchemeDetails} />
           </div>
         </div>
       </SchemeContext.Provider>

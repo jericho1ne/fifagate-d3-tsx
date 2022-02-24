@@ -13,12 +13,12 @@
     "Marketing": {
       "icon" : "fa-newspaper-o",
       "unicode": "\uf1ea",
-      "color": "#492A7F"
+      "color": "#2d3f79"
     },
     "Broadcasting": {
       "icon" : "fa-video-camera",
       "unicode": "\uf03d",
-      "color": "#2A3778"
+      "color": "#3535e3"
     },
     "Commercial": {
       "icon" : "fa-bullhorn",
@@ -37,12 +37,13 @@
     },
     "Corporation" : {
       "icon" : "fa-building",
-      "unicode": "\uf1ad"
+      "unicode": "\uf1ad",
+      "color": "#44c10d"
     },
     "Co-Conspirator": {
       "icon"  : "fa-user-secret",
       "unicode": "\uf21b",
-      "color" : "#eeeeee" 
+      "color" : "#8d8d8d" 
     }
   },
   

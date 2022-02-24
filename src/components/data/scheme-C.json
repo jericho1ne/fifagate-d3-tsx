@@ -13,17 +13,12 @@
 	"links": [
 		{"source": "FIFA", "target": "CONMEBOL", 					    "details": {"type": "Basic", "label": ""}},
 		{"source":"CONMEBOL", "target": "Nicolas Leoz", 			"details": {"type": "Basic", "label": ""}},
-
 		{"source":"Sports Mkt Co A", "target": "Co-Conspirator #5","details": {"type": "Basic", "label": ""}},
-		
-
-		{"source":"Toyota", "target": "Sports Mkt Co A", 			    "details": {"type": "Marketing", "label": "$35,000,000"}},
-		{"source":"Bridgestone", "target": "Sports Mkt Co A",     "details": {"type": "Marketing", "label": "$57,000,000"}},
-		{"source":"Grupo Sartander", "target": "Sports Mkt Co A",	"details": {"type": "Marketing", "label": "$40,000,000"}},
-
-
-		{"source":"Sports Mkt Co A", "target": "Nicolas Leoz",   	"details": {"type": "Marketing", "label": "$56,100,000"}},
-		{"source":"Co-Conspirator #5", "target": "Nicolas Leoz", 	"details": {"type": "Kickback", "label": "$2,000,000"}},
-		{"source":"Co-Conspirator #5", "target": "Nicolas Leoz", 	"details": {"type": "Kickback", "label": "$2,000,000"}}
+		{"source": "Toyota", "target": "Sports Mkt Co A", 			    "details": {"type": "Marketing", "label": "$35,000,000"}},
+		{"source": "Bridgestone", "target": "Sports Mkt Co A",     "details": {"type": "Marketing", "label": "$57,000,000"}},
+		{"source": "Grupo Sartander", "target": "Sports Mkt Co A",	"details": {"type": "Marketing", "label": "$40,000,000"}},
+		{"source": "Sports Mkt Co A", "target": "Nicolas Leoz",   	"details": {"type": "Marketing", "label": "$56,100,000"}},
+		{"source": "Co-Conspirator #5", "target": "Nicolas Leoz", 	"details": {"type": "Kickback", "label": "$2,000,000"}},
+		{"source": "Co-Conspirator #5", "target": "Nicolas Leoz", 	"details": {"type": "Kickback", "label": "$2,000,000"}}
 	]
 }
