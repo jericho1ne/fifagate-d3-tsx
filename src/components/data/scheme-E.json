@@ -1,19 +1,19 @@
 { 
-  	"nodes": [
-		["FIFA", 				{"type": "Federation"}],	
-		["Sportswear Co. A", 	{"type": "Sportswear", "country": "USA"}],	
-		["CBF", 				{"type": "Federation", "country": "Brazil"}],	
-		["Traffic Brazil", 		{"type": "Commercial"}],
-		["Co-Conspirator #2", 	{"type": "Co-Conspirator"}],	
-		["Co-Conspirator #11", 	{"type": "Co-Conspirator"}]	
+  "nodes": [
+		{"id": "FIFA", 				"details": {"type": "Federation"}},	
+		{"id": "Sportswear Co. A", 	"details": {"type": "Sportswear", "country": "USA"}},	
+		{"id": "CBF", 				"details": {"type": "Federation", "country": "Brazil"}},	
+		{"id": "Traffic Brazil", 		"details": {"type": "Commercial"}},
+		{"id": "Co-Conspirator #2", 	"details": {"type": "Co-Conspirator"}},	
+		{"id": "Co-Conspirator #11", 	"details": {"type": "Co-Conspirator"}}
   ],
-	"edges" : [
-		["FIFA","CBF", 	{"type": "Basic", "label": ""}],
-		["Co-Conspirator #2", "Traffic Brazil",  {"type": "Basic", "label": ""}],	
-		["Co-Conspirator #11", "CBF", 			{"type": "Basic", "label": ""}],
-		["Sportswear Co. A", "CBF", {"type": "Marketing", "label": "$160,000,000"}],
-		["Sportswear Co. A", "Traffic Brazil", {"type": "Kickback", "label": "$30,000,000"}],
-		["Co-Conspirator #2", "Co-Conspirator #11", {"type": "Kickback", "label": "$15,000,000"}],
-		["Sportswear Co. A", "Traffic Brazil", {"type": "Kickback", "label": "Termination"}]
+	"links": [
+		{"source": "FIFA",              "target": "CBF", 	"details": {"type": "Basic", "label": ""}},
+		{"source": "Co-Conspirator #2", "target": "Traffic Brazil",  "details": {"type": "Basic", "label": ""}},	
+		{"source": "Co-Conspirator #11", "target": "CBF", 			"details": {"type": "Basic", "label": ""}},
+		{"source": "Sportswear Co. A", "target": "CBF", "details": {"type": "Marketing", "label": "$160,000,000"}},
+		{"source": "Sportswear Co. A", "target": "Traffic Brazil", "details": {"type": "Kickback", "label": "$30,000,000"}},
+		{"source": "Co-Conspirator #2", "target": "Co-Conspirator #11", "details": {"type": "Kickback", "label": "$15,000,000"}},
+		{"source": "Sportswear Co. A", "target": "Traffic Brazil", "details": {"type": "Kickback", "label": "Termination"}}
 	]
 }

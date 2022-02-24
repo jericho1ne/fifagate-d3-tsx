@@ -1,9 +1,5 @@
-'use strict'
-
 
 export function getSchemeData(schemeLetter) {
-  console.log(" >>>>>>>>>>>>>>>>>>>>>>>> ")
+  console.log(` >>>>>>>> ${schemeLetter} >>>>>>>>>>>>> `)
 }
 
-
-export default { getSchemeData }

@@ -1,17 +1,17 @@
 { 
-  	"nodes": [
-		["FIFA",  				{"type": "Federation"}],
-		["CONCACAF",			{"type": "Federation"}],
-		["Traffic USA",			{"type": "Commercial"}],
-		["Co-Conspirator #1",	{"type": "Co-Conspirator"}],
-		["Jack Warner",			{"type": "FIFA Member", "country": "Trinidad and Tobago"}]
+  "nodes": [
+		{"id": "FIFA",  		  "details":	{"type": "Federation"}},
+		{"id": "CONCACAF",	  "details":	{"type": "Federation"}},
+		{"id": "Traffic USA",	"details":	{"type": "Commercial"}},
+		{"id": "Co-Conspirator #1",	"details": {"type": "Co-Conspirator"}},
+		{"id": "Jack Warner",		"details":{"type": "FIFA Member", "country": "Trinidad and Tobago"}}
 	],
-  	"edges": [
-		["FIFA", "CONCACAF", 					{"type": "Basic", "label": ""}],
-		["Traffic USA", "Co-Conspirator #1", 	{"type": "Basic", "label": ""}],
-		["Jack Warner", "CONCACAF", 			{"type": "Basic", "label": ""}],
-		["Traffic USA", "CONCACAF", 			{"type": "Marketing", "label": "$9,750,000"}],
-		["Traffic USA", "Co-Conspirator #1", 	{"type": "Kickback", "label": "$200,000"}],
-		["Co-Conspirator #1", "Jack Warner",    {"type": "Kickback", "label": "$100,000"}]
+  "links": [
+		{"source": "FIFA",          "target":"CONCACAF", 			    "details": {"type": "Basic", "label": ""}},
+		{"source": "Traffic USA",   "target":"Co-Conspirator #1", "details": {"type": "Basic", "label": ""}},
+		{"source": "Jack Warner",   "target": "CONCACAF", 			  "details": {"type": "Basic", "label": ""}},
+		{"source": "Traffic USA",   "target": "CONCACAF", 			  "details": {"type": "Marketing", "label": "$9,750,000"}},
+		{"source": "Traffic USA",   "target":"Co-Conspirator #1", "details": {"type": "Kickback", "label": "$200,000"}},
+		{"source": "Co-Conspirator #1", "target":"Jack Warner",   "details": {"type": "Kickback", "label": "$100,000"}}
   ]
 }

@@ -1,39 +1,39 @@
 { 
 	"nodes": [
-		["FIFA", 					      {"type": "Federation"}], 
-		["CONMEBOL Copa America", 	{"type": "Federation", "notes": "Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition."}],
-		["Traffic",					    {"type": "Commercial"}],
-		["Co-Conspirator #2",		{"type": "Co-Conspirator", "notes": "Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel."}], 
-		["Co-Conspirator #9",		{"type": "Co-Conspirator"}], 
+		{"id": "FIFA", 					      "details": {"type": "Federation"}}, 
+		{"id": "CONMEBOL Copa America", "details": {"type": "Federation", "notes": "Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition."}},
+		{"id": "Traffic",					    "details": {"type": "Commercial"}},
+		{"id": "Co-Conspirator #2",		"details": {"type": "Co-Conspirator", "notes": "Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel."}}, 
+		{"id": "Co-Conspirator #9",		"details": {"type": "Co-Conspirator"}}, 
+	
+		{"id": "Nicolas Leoz",   			"details": {"type": "FIFA Member", "country": "Paraguay", "notes": "Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2."}}, 
+		{"id": "Rafael Esquivel",			"details": {"type": "FIFA Member", "country": "Venezuela", "notes": "Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play."}}, 
+		{"id": "Alejandro Burzaco",		"details": {"type": "FIFA Member", "country": "Argentina"}}, 
+		{"id": "Co-Conspirator #10",	"details": {"type": "Co-Conspirator"}}
+  ],
+	"links": [
+		{"source": "FIFA", 	            "target": "CONMEBOL Copa America", "details": {"type": "Basic", "label": ""}},
+		{"source": "Nicolas Leoz",      "target": 	"CONMEBOL Copa America", "details": {"type": "Basic", "label": ""}},
+
+		{"source": "Co-Conspirator #10", "target": "CONMEBOL Copa America", "details": {"type": "Basic", "label": ""}}, 		
+
+		{"source": "Rafael Esquivel",   "target": "CONMEBOL Copa America", "details": {"type": "Basic", "label": ""}},
+		{"source": "Traffic",           "target": "Co-Conspirator #2", 			 "details": {"type": "Basic", "label": ""}},
+		{"source": "Traffic",           "target": "Co-Conspirator #9", 			 "details": {"type": "Basic", "label": ""}},
+
+		{"source": "Traffic",	          "target": "CONMEBOL Copa America","details": {"type": "Marketing", "label": "$8,740,000"}},
+
+		{"source": "Traffic",           "target": "CONMEBOL Copa America","details": {"type": "Marketing", "label": "$51,000,000"}},
+
+		{"source": "Traffic",           "target": "Rafael Esquivel",   	"details": {"type": "Kickback", "label": "$1,000,000"}},
+		{"source": "Co-Conspirator #9", "target": "Rafael Esquivel",     	"details": {"type": "Kickback", "label": "$700,000"}},
 		
-		["Nicolas Leoz",   			{"type": "FIFA Member", "country": "Paraguay", "notes": "Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2."}], 
-		["Rafael Esquivel",			{"type": "FIFA Member", "country": "Venezuela", "notes": "Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play."}], 
-		["Alejandro Burzaco",		{"type": "FIFA Member", "country": "Argentina"}], 
-		["Co-Conspirator #10",	{"type": "Co-Conspirator"}]
-  	],
-	"edges": [
-		["FIFA", 				"CONMEBOL Copa America", {"type": "Basic", "label": ""}],
-		["Nicolas Leoz",		"CONMEBOL Copa America", {"type": "Basic", "label": ""}],
+		{"source": "Co-Conspirator #2",   "target": "Nicolas Leoz",    		"details": {"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}},
 
-		["Co-Conspirator #10", "CONMEBOL Copa America", {"type": "Basic", "label": ""}], 		
+		{"source": "Co-Conspirator #2",   "target": "Rafael Esquivel", 		"details": {"type": "Kickback", "label": "$2,000,000", "ghost": "true"}},
+		{"source": "Co-Conspirator #2", 	"target":	"Rafael Esquivel",     	"details": {"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}},
 
-		["Rafael Esquivel", "CONMEBOL Copa America", {"type": "Basic", "label": ""}],
-		["Traffic", "Co-Conspirator #2", 			 {"type": "Basic", "label": ""}],
-		["Traffic","Co-Conspirator #9", 			 {"type": "Basic", "label": ""}],
-
-		["Traffic",	"CONMEBOL Copa America",{"type": "Marketing", "label": "$8,740,000"}],
-
-		["Traffic", "CONMEBOL Copa America",{"type": "Marketing", "label": "$51,000,000"}],
-
-		["Traffic", "Rafael Esquivel",   	{"type": "Kickback", "label": "$1,000,000"}],
-		["Co-Conspirator #9", 		"Rafael Esquivel",     	{"type": "Kickback", "label": "$700,000"}],
-		
-		["Co-Conspirator #2", 		"Nicolas Leoz",    		{"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}],
-
-		["Co-Conspirator #2", 		"Rafael Esquivel", 		{"type": "Kickback", "label": "$2,000,000", "ghost": "true"}],
-		["Co-Conspirator #2", 		"Rafael Esquivel",     	{"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}],
-
-		["Co-Conspirator #2", 	"Alejandro Burzaco", 	{"type": "Kickback", "label": "7-digit $", "ghost": "true"}],
-		["Alejandro Burzaco", 	"Co-Conspirator #10", 	{"type": "Kickback", "label": "7-digit $", "ghost": "true"}]
+		{"source": "Co-Conspirator #2", 	"target": "Alejandro Burzaco", 	"details": {"type": "Kickback", "label": "7-digit $", "ghost": "true"}},
+		{"source": "Alejandro Burzaco", 	"target": "Co-Conspirator #10", 	"details": {"type": "Kickback", "label": "7-digit $", "ghost": "true"}}
 	]
 }

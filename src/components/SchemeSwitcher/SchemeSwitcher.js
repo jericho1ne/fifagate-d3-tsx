@@ -1,19 +1,36 @@
+import { Component, createContext } from 'react'
+import ForceGraph from '../ForceGraph'
+
+
+import LocalContext from '../../context/LocalContext';
 import styles from './SchemeSwitcher.module.scss'
 
-// import { motion, AnimatePresence } from 'framer-motion'
-// import Router from 'next/router'
-import React, { Component, useState, useEffect } from 'react'
-import { getSchemeData } from '../utils/helpers'
+
+import schemeA from '../data/scheme-A.json'
+import schemeB from '../data/scheme-B.json'
+import schemeC from '../data/scheme-C.json'
+import schemeD from '../data/scheme-D.json'
+import schemeE from '../data/scheme-E.json'
+
+const SchemeContext = createContext({});
+
+const allSchemes = {
+  "A": schemeA,
+  "B": schemeB,
+  "C": schemeC,
+  "D": schemeD,
+  "E": schemeE,
+}
 
 export default class SchemeSwitcher extends Component {
   state = {
-    currentSchemeLetter: '',
-    currentSchemeDetails: '',
-    appTiles: [],
+    currentSchemeLetter: 'A',
+    currentSchemeDetails: schemeA,
   }
 
   async componentDidMount() {
-    console.log(" SchemeSwitcher componentDidMount")
+    console.log(" ----------- SchemeSwitcher componentDidMount")
+    console.log(this.context)
   }
 
   /**
@@ -23,11 +40,9 @@ export default class SchemeSwitcher extends Component {
   loadScheme = async (e) => {
     const scheme = e?.target?.getAttribute('data-scheme')
 
-    getSchemeData(scheme)
-
     this.setState({ 
       currentScheme: scheme,
-      currentSchemeDetails: [],
+      currentSchemeDetails: allSchemes[scheme],
     })
   } 
 
@@ -35,13 +50,22 @@ export default class SchemeSwitcher extends Component {
     const { currentScheme } = this.state
 
     return (
-      <>
-        <button onClick={(e) => this.loadScheme(e)} data-scheme="A">Scheme A</button>
-        <button onClick={(e) => this.loadScheme(e)} data-scheme="B">Scheme B</button>
-        <button onClick={(e) => this.loadScheme(e)} data-scheme="C">Scheme C</button>
-        <button onClick={(e) => this.loadScheme(e)} data-scheme="D">Scheme D</button>
-        <button onClick={(e) => this.loadScheme(e)} data-scheme="E">Scheme E</button>
-      </>
+      <SchemeContext.Provider 
+        value={this.state.currentSchemeDetails}
+      >
+        <div className={styles.switcher} >
+          <div className={styles.switcher__nav}>
+            <button onClick={(e) => this.loadScheme(e)} data-scheme="A">Scheme A</button>
+            <button onClick={(e) => this.loadScheme(e)} data-scheme="B">Scheme B</button>
+            <button onClick={(e) => this.loadScheme(e)} data-scheme="C">Scheme C</button>
+            <button onClick={(e) => this.loadScheme(e)} data-scheme="D">Scheme D</button>
+            <button onClick={(e) => this.loadScheme(e)} data-scheme="E">Scheme E</button>
+          </div>
+          <div className={styles.switcher__graph}>
+            <ForceGraph />
+          </div>
+        </div>
+      </SchemeContext.Provider>
     )// end Return
   } // end render
 
