@@ -1,12 +1,12 @@
 @mixin btn() {
   color: white;
   border: 0;
-  font-weight: 500;
+  font-size: .75rem;
   text-decoration: none;
   cursor: pointer;
-  font-weight: 500;
-  padding: .65rem 1rem;
-  background-color: #2185d0;
+  font-weight: 800;
+  padding: .35rem .6rem;
+  background-color: #045694;
   border-radius: 0.25rem;
   transition: opacity 0.25s ease-in;
 

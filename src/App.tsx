@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header'
+import SchemeSwitcher from './components/SchemeSwitcher'
 import ForceGraph from './components/ForceGraph'
 
 import logo from './logo.svg'
@@ -9,13 +10,12 @@ function App() {
   return (
     <div className="App">
       <Header title="FIFA Payoff Schemes, 1987-2014"></Header>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      
+      <div className="schemes">
+        <h3>Select a scheme</h3>
+        <SchemeSwitcher />
         <ForceGraph />
-      </header>
+      </div>
     </div>
   );
 }

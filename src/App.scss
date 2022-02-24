@@ -1,5 +1,15 @@
+@import "./styles/mixins";
+
 .App {
   text-align: center;
+}
+
+.schemes {
+  border: 1px solid blue;
+}
+
+button {
+  @include btn();
 }
 
 .App-logo {
