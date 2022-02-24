@@ -1,5 +1,7 @@
-import './Header.module.css'
+import styles from './Header.module.scss'
 
 export default function Header({ title }) {
-  return <h2 className="pageTitle">{title}</h2>
+  return <div>
+      <h2 className={styles.pageTitle}>{title}</h2>
+    </div>
 }

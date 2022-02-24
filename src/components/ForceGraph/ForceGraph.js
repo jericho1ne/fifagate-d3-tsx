@@ -9,9 +9,16 @@ const ForceGraph = () => {
   return (
     <LocalContext.Consumer>
       {context => (
-        <div className={styles.fgParent}>
+        <div className={styles.fg}>
+          {/* 
+          All parameters:
+
+          https://github.com/vasturiano/react-force-graph/blob/master/src/packages/react-force-graph-2d/index.d.ts#L42-L121
+          */}
           <ForceGraph2D
             graphData={context}
+            enablePanInteraction={false}
+            enableZoomInteraction={false}
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.id;
               const fontSize = 12/globalScale;

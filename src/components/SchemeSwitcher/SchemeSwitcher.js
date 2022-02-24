@@ -41,8 +41,7 @@ export default class SchemeSwitcher extends Component {
   }
 
   async componentDidMount() {
-    console.log(" ----------- SchemeSwitcher componentDidMount")
-    console.log(this.context)
+    //
   }
 
   /**
@@ -80,4 +79,3 @@ export default class SchemeSwitcher extends Component {
   } // end render
 
 } // end ListView
-
