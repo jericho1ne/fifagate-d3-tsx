@@ -1,0 +1,39 @@
+{ 
+	"nodes": [
+		["FIFA", 					      {"type": "Federation"}], 
+		["CONMEBOL Copa America", 	{"type": "Federation", "notes": "Received three payments totaling $8,740,000 from Traffic Brazil between 1987-1993 for commercial and broadcast rights.  Received $51,000,000 from 2004-2011 for rights Wire payment from US to Paraguay for rights associated with 2004, 2007, and 2011 Copa America edition."}],
+		["Traffic",					    {"type": "Commercial"}],
+		["Co-Conspirator #2",		{"type": "Co-Conspirator", "notes": "Co-Conspirator #2 paid a 6-7 digit figure bribe 11 times to Leoz, and five times to Esquivel."}], 
+		["Co-Conspirator #9",		{"type": "Co-Conspirator"}], 
+		
+		["Nicolas Leoz",   			{"type": "FIFA Member", "country": "Paraguay", "notes": "Received a 6-7 digit figure bribe 11 times from Co-Conspirator #2."}], 
+		["Rafael Esquivel",			{"type": "FIFA Member", "country": "Venezuela", "notes": "Received a 6-7 digit figure bribe 5 times from Co-Conspirator #2.  Received $2,000,000 additional kickback (retroactively demanded) for 2007 Copa America commerical and broadcast rights due to substantial profitability. Co-conspirators sought favorable position on commercial and marketing contracts up for bids, against competitor, Full Play."}], 
+		["Alejandro Burzaco",		{"type": "FIFA Member", "country": "Argentina"}], 
+		["Co-Conspirator #10",	{"type": "Co-Conspirator"}]
+  	],
+	"edges": [
+		["FIFA", 				"CONMEBOL Copa America", {"type": "Basic", "label": ""}],
+		["Nicolas Leoz",		"CONMEBOL Copa America", {"type": "Basic", "label": ""}],
+
+		["Co-Conspirator #10", "CONMEBOL Copa America", {"type": "Basic", "label": ""}], 		
+
+		["Rafael Esquivel", "CONMEBOL Copa America", {"type": "Basic", "label": ""}],
+		["Traffic", "Co-Conspirator #2", 			 {"type": "Basic", "label": ""}],
+		["Traffic","Co-Conspirator #9", 			 {"type": "Basic", "label": ""}],
+
+		["Traffic",	"CONMEBOL Copa America",{"type": "Marketing", "label": "$8,740,000"}],
+
+		["Traffic", "CONMEBOL Copa America",{"type": "Marketing", "label": "$51,000,000"}],
+
+		["Traffic", "Rafael Esquivel",   	{"type": "Kickback", "label": "$1,000,000"}],
+		["Co-Conspirator #9", 		"Rafael Esquivel",     	{"type": "Kickback", "label": "$700,000"}],
+		
+		["Co-Conspirator #2", 		"Nicolas Leoz",    		{"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}],
+
+		["Co-Conspirator #2", 		"Rafael Esquivel", 		{"type": "Kickback", "label": "$2,000,000", "ghost": "true"}],
+		["Co-Conspirator #2", 		"Rafael Esquivel",     	{"type": "Kickback", "label": "6-7 digit figure", "ghost": "true"}],
+
+		["Co-Conspirator #2", 	"Alejandro Burzaco", 	{"type": "Kickback", "label": "7-digit $", "ghost": "true"}],
+		["Alejandro Burzaco", 	"Co-Conspirator #10", 	{"type": "Kickback", "label": "7-digit $", "ghost": "true"}]
+	]
+}

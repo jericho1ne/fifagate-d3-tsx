@@ -1,0 +1,19 @@
+{ 
+  	"nodes": [
+		["FIFA", 				{"type": "Federation"}],	
+		["Sportswear Co. A", 	{"type": "Sportswear", "country": "USA"}],	
+		["CBF", 				{"type": "Federation", "country": "Brazil"}],	
+		["Traffic Brazil", 		{"type": "Commercial"}],
+		["Co-Conspirator #2", 	{"type": "Co-Conspirator"}],	
+		["Co-Conspirator #11", 	{"type": "Co-Conspirator"}]	
+  ],
+	"edges" : [
+		["FIFA","CBF", 	{"type": "Basic", "label": ""}],
+		["Co-Conspirator #2", "Traffic Brazil",  {"type": "Basic", "label": ""}],	
+		["Co-Conspirator #11", "CBF", 			{"type": "Basic", "label": ""}],
+		["Sportswear Co. A", "CBF", {"type": "Marketing", "label": "$160,000,000"}],
+		["Sportswear Co. A", "Traffic Brazil", {"type": "Kickback", "label": "$30,000,000"}],
+		["Co-Conspirator #2", "Co-Conspirator #11", {"type": "Kickback", "label": "$15,000,000"}],
+		["Sportswear Co. A", "Traffic Brazil", {"type": "Kickback", "label": "Termination"}]
+	]
+}

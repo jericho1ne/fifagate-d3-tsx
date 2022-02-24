@@ -1,0 +1,22 @@
+@mixin btn() {
+  color: white;
+  border: 0;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: .65rem 1rem;
+  background-color: #2185d0;
+  border-radius: 0.25rem;
+  transition: opacity 0.25s ease-in;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+@mixin hideOnMobile() {
+  @media only screen and (max-width: 720px) {
+    display: none;
+  }
+}

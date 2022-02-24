@@ -1,0 +1,28 @@
+{ 
+  	"nodes": [
+		["FIFA", 			{"type": "Federation"}],	
+		["CONMEBOL", 		{"type": "Federation"}],
+		["Sports Mkt Co A",	{"type": "Commercial", "country": "USA"}],
+		["Grupo Sartander",	{"type": "Corporation", "country": "Spain"}],	
+		["Bridgestone", 	{"type": "Corporation", "country": "Japan"}],
+		["Toyota", 			{"type": "Corporation", "country": "Japan"}],
+		["Nicolas Leoz", 	{"type": "FIFA Member", "country": "Paraguay", "notes": "One of the $2 million payments was paid in five $400,000 installments." }],
+		["Co-Conspirator #5",{"type": "Co-Conspirator", "country": "USA"}]
+  ],
+	"edges": [
+		["FIFA","CONMEBOL", 					{"type": "Basic", "label": ""}],
+		["CONMEBOL","Nicolas Leoz", 			{"type": "Basic", "label": ""}],
+
+		["Sports Mkt Co A", "Co-Conspirator #5",{"type": "Basic", "label": ""}],
+		
+
+		["Toyota", "Sports Mkt Co A", 			{"type": "Marketing", "label": "$35,000,000"}],
+		["Bridgestone", "Sports Mkt Co A",      {"type": "Marketing", "label": "$57,000,000"}],
+		["Grupo Sartander", "Sports Mkt Co A",	{"type": "Marketing", "label": "$40,000,000"}],
+
+
+		["Sports Mkt Co A", "Nicolas Leoz",   	{"type": "Marketing", "label": "$56,100,000"}],
+		["Co-Conspirator #5", "Nicolas Leoz",  	{"type": "Kickback", "label": "$2,000,000"}],
+		["Co-Conspirator #5", "Nicolas Leoz",  	{"type": "Kickback", "label": "$2,000,000"}]
+	]
+}
