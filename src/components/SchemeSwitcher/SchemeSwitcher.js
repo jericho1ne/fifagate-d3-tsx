@@ -1,8 +1,8 @@
-import { Component, createContext } from 'react'
+import { Component } from 'react'
 import ForceGraph from '../ForceGraph'
 
-
 import LocalContext from '../../context/LocalContext';
+
 import styles from './SchemeSwitcher.module.scss'
 
 
@@ -11,8 +11,6 @@ import schemeB from '../data/scheme-B.json'
 import schemeC from '../data/scheme-C.json'
 import schemeD from '../data/scheme-D.json'
 import schemeE from '../data/scheme-E.json'
-
-const SchemeContext = createContext({});
 
 const allSchemes = {
   "A": schemeA,
@@ -47,10 +45,9 @@ export default class SchemeSwitcher extends Component {
   } 
 
   render() {
-    const { currentScheme } = this.state
 
     return (
-      <SchemeContext.Provider 
+      <LocalContext.Provider 
         value={this.state.currentSchemeDetails}
       >
         <div className={styles.switcher} >
@@ -62,10 +59,10 @@ export default class SchemeSwitcher extends Component {
             <button onClick={(e) => this.loadScheme(e)} data-scheme="E">Scheme E</button>
           </div>
           <div className={styles.switcher__graph}>
-            <ForceGraph props={this.state.currentSchemeDetails} />
+            <ForceGraph />
           </div>
         </div>
-      </SchemeContext.Provider>
+      </LocalContext.Provider>
     )// end Return
   } // end render
 

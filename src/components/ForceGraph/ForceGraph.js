@@ -5,16 +5,14 @@ import LocalContext from "../../context/LocalContext"
 import legend from '../data/legend.json'
 
 console.log(legend)
-const ForceGraph = ({props}) => {
-  // console.log(" >>> ForceGraph")
-  // console.log(props)
+const ForceGraph = ({}) => {
 
   return (
-    // <LocalContext.Consumer>
-    //   {props => (
+    <LocalContext.Consumer>
+      {context => (
         <div className={styles.fgParent}>
           <ForceGraph2D
-            graphData={props}
+            graphData={context}
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.id;
               const fontSize = 12/globalScale;
@@ -27,7 +25,6 @@ const ForceGraph = ({props}) => {
               ctx.nodeRadius = 20
               ctx.linkStrokeWidth = 10
               ctx.linkDistance = 550
-              // ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
               const bgColor = legend.actors[node.details.type].color
 
               ctx.fillStyle = `${bgColor}`;
@@ -44,7 +41,7 @@ const ForceGraph = ({props}) => {
               node.__bckgDimensions = bckgDimensions; 
             }}
             nodePointerAreaPaint={(node, color, ctx) => {
-              ctx.fillStyle = '#000000';
+              ctx.fillStyle = 'rgba(0, 0, 0, 0.95)';
               const bckgDimensions = node.__bckgDimensions;
               bckgDimensions && ctx.fillRect(
                 node.x - bckgDimensions[0] / 2, 
@@ -53,8 +50,8 @@ const ForceGraph = ({props}) => {
             }}
           />
         </div>  
-    //   )}
-    // </LocalContext.Consumer>
+      )}
+    </LocalContext.Consumer>
     
   )// end Return
 
