@@ -2,10 +2,9 @@ import styles from './ForceGraph.module.scss'
 
 import ForceGraph2D from 'react-force-graph-2d'
 import LocalContext from "../../context/LocalContext"
-import legend from '../data/legend.json'
+import legend from '../_data/legend.json'
 
-console.log(legend)
-const ForceGraph = ({}) => {
+const ForceGraph = () => {
 
   return (
     <LocalContext.Consumer>

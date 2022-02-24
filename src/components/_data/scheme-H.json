@@ -1,0 +1,33 @@
+{ 
+	"nodes" : [
+		{"id": "FIFA",						"details":	{"type": "Federation"}},
+		{"id": "Costa Rican Soccer Federation","details":	{"type": "Federation", "country": "Costa Rica"}},
+		{"id": "Traffic",						"details":	{"type": "Commercial"}},
+		{"id": "Eduardo Li",					"details":	{"type": "FIFA Member", "country": "Costa Rica"}},
+		{"id": "Nicaraguan Soccer Federation","details":	{"type": "Federation", "country": "Nicaragua"}},
+		{"id": "Julio Rocha",					"details":	{"type": "FIFA Member", "country": "Nicaragua"}},
+		{"id": "Co-Conspirator #18",			"details":	{"type": "FIFA Member"}},
+		{"id": "Co-Conspirator #4",			"details":	{"type": "Co-Conspirator"}},
+		{"id": "Co-Conspirator #19",			"details":	{"type": "Co-Conspirator"}}
+	],
+	"links" : [
+		{"source": "FIFA", "target": "Costa Rican Soccer Federation", 		"details":	{"type": "Basic", "label": ""}},
+		{"source": "FIFA", "target": "Nicaraguan Soccer Federation", 		"details":	{"type": "Basic", "label": ""}},
+		{"source": "FIFA", "target": "Eduardo Li", 						"details":	{"type": "Basic", "label": ""}},
+		{"source": "FIFA",  "target":"Julio Rocha", 	"details":	{"type": "Basic", "label": ""}},
+
+		{"source": "Traffic", "target":"Costa Rican Soccer Federation", "details":	{"type": "Marketing", "label": "~$2,500,000"}},
+		{"source": "Traffic", "target":"Nicaraguan Soccer Federation", "details":	{"type": "Marketing", "label": "~$1,138,000"}},
+
+		{"source": "Traffic", "target":"Eduardo Li", 						"details":	{"type": "Kickback", "label": ""}},
+		{"source": "Traffic", "target":"Co-Conspirator #4", 				"details":	{"type": "Basic", "label": ""}},	
+		
+		{"source": "Traffic","target": "Julio Rocha", 						"details":	{"type": "Kickback", "label": "$150,000"}},
+		{"source": "Traffic","target": "Julio Rocha", 						"details":	{"type": "Kickback", "label": "", "ghost": "true"}},
+		{"source": "Traffic", "target":"Julio Rocha", 						"details":	{"type": "Kickback", "label": "", "ghost": "true"}},
+		{"source": "Traffic","target": "Co-Conspirator #19", 				"details":	{"type": "Kickback", "label": "$50,000"}},
+		{"source": "Co-Conspirator #18","target": "Traffic", 				"details":	{"type": "Basic", "label": ""}},
+		{"source": "Co-Conspirator #18", "target":"Nicaraguan Soccer Federation","details": {"type": "Basic", "label": ""}},
+		{"source": "Co-Conspirator #19","target": "Nicaraguan Soccer Federation","details": {"type": "Basic", "label": ""}}
+	]
+}

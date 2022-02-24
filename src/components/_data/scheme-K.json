@@ -1,0 +1,27 @@
+{ 
+	"nodes" : [
+		{"id":"FIFA",				 "details": {"type": "Federation"}},
+		{"id":"Traffic USA",				 "details": {"type": "Commercial"}},
+		{"id":"CONCACAF",				 "details": {"type": "Federation"}},
+		{"id":"Jeffrey Webb",			 "details": {"type": "FIFA Member", "country": "Cayman Islands"}}, 
+		{"id":"Co-Conspirator #2",		 "details": {"type": "Co-Conspirator"}},
+		{"id":"Co-Conspirator #4",		 "details": {"type": "Co-Conspirator"}},	
+		{"id":"Co-Conspirator #23",		 "details": {"type": "Co-Conspirator"}},
+		{"id":"Aaron Davidson",			 "details": {"type": "Co-Conspirator", "country": "USA"}},
+		{"id":"Soccer Uniform Company A",  "details": {"type": "Sportswear"}}
+	],
+	"links" : [
+		{"source": "FIFA",  "target": "CONCACAF",  "details": {"type": "Basic", "label": ""}},						
+		{"source": "Traffic USA", "target": "Aaron Davidson",  "details": {"type": "Basic", "label": ""}},			
+		{"source": "Co-Conspirator #2", "target": "Traffic USA",   "details": {"type": "Basic", "label": ""}},		
+		{"source": "CONCACAF", "target": "Co-Conspirator #4",  "details": {"type": "Basic", "label": ""}},			
+		{"source": "Soccer Uniform Company A", "target": "Co-Conspirator #23",  "details": {"type": "Basic", "label": ""}},
+
+		{"source": "Traffic USA", "target": "CONCACAF",  "details": {"type": "Marketing", "label": "$15,500,000"}},
+		{"source": "Traffic USA", "target": "CONCACAF",  "details": {"type": "Marketing", "label": "$60,000,000"}},
+		{"source": "Traffic USA", "target": "Soccer Uniform Company A",  "details": {"type": "Kickback", "label": "$1,100,000"}},  
+		{"source": "Traffic USA", "target": "Soccer Uniform Company A",  "details": {"type": "Kickback", "label": "$2,000,000"}}, 
+		{"source": "Soccer Uniform Company A","target":  "Jeffrey Webb",  "details": {"type": "Kickback", "label": "$1,100,000"}},  
+		{"source": "Soccer Uniform Company A", "target": "Jeffrey Webb",  "details": {"type": "Kickback", "label": "$2,000,000"}}
+	]
+}

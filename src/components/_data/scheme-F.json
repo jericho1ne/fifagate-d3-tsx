@@ -1,0 +1,20 @@
+{ 
+	"nodes" : [
+		{"id":"FIFA",			"details": {"type": "Federation"}},
+		{"id":"Traffic",			"details": {"type": "Commercial", "notes": "Traffic + Traffic USA combined"}},
+		{"id":"CFU",				"details": {"type": "Federation"}},
+		{"id":"Jack Warner",		"details": {"type": "FIFA Member", "country": "Trinidad and Tobago"}}
+	],
+	"links" : [
+		{"source": "FIFA", "target":  "CFU", "details": {"type": "Basic", "label": ""}},
+
+		{"source": "CFU", "target":  "Jack Warner", "details": {"type": "Basic", "label": ""}},
+
+		{"source": "Traffic", "target": "CFU", "details": {"type": "Marketing", "label": "$900,000"}},
+		{"source": "Traffic", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$800,000"}},
+		{"source": "Traffic", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$40,000"}},
+		{"source": "Traffic", "target": "CFU", "details": {"type": "Marketing", "label": "$2,200,000"}},
+		{"source": "Traffic", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$800,000"}},
+		{"source": "Traffic", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$40,000"}}
+	]
+}

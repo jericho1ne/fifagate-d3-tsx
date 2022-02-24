@@ -1,0 +1,33 @@
+{ 
+	"nodes" : [
+		{"id": "FIFA", 				"details": {"type": "Federation"}},
+		{"id": "Morocco",				"details": {"type": "Federation", "country": "Morocco"}},
+		{"id": "Co-Conspirator #1",	"details": {"type": "Co-Conspirator"}},
+		{"id": "South Africa",  		"details": {"type": "Federation", "country": "South Africa"}},
+		{"id": "FIFA high ranking individual",	"details": {"type": "FIFA Member"}},
+		{"id": "CFU",					"details": {"type": "Federation", "notes":"Including three legal FIFA payments diverted from South Africa to CFU accounts controlled by Warner as bribes. Money moved from Swiss account to New York accounts, to Trinidad and Tobago account."}},
+		{"id": "Jack Warner",			"details": {"type": "FIFA Member", "country": "Trinidad and Tobago"}}
+	],
+	"links" : [
+		{"source": "FIFA", "target":  "Morocco", "details": {"type": "Basic", "label": ""}},		
+		{"source": "FIFA", "target":  "CFU", "details": {"type": "Basic", "label": ""}},			
+		{"source": "FIFA", "target":  "CFU", "details": {"type": "Basic", "label": ""}},
+		{"source": "FIFA", "target":  "South Africa", "details": {"type": "Basic", "label": ""}},
+		
+		{"source": "FIFA","target":  "FIFA high ranking individual", 	"details": {"type": "Basic", "label": ""}},
+
+		{"source": "FIFA high ranking individual", "target": "South Africa", "details": {"type": "Sports Devt", "label": "$10,000,000"}},
+		{"source": "FIFA high ranking individual", "target": "CFU", "details": {"type": "Kickback", "label": "$616,000"}},
+		{"source": "FIFA high ranking individual", "target": "CFU", "details": {"type": "Kickback", "label": "$1,600,000"}},
+		{"source": "FIFA high ranking individual", "target": "CFU", "details": {"type": "Kickback", "label": "$7,784,000"}},
+
+		{"source": "Morocco", "target": "Co-Conspirator #1", "details": {"type": "Offered Bribe", "label": "$1,000,000"}},
+		{"source": "South Africa", "target": "CFU", "details": {"type": "Kickback", "label": ""}},
+
+		{"source": "CFU", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$200,000"}},
+		{"source": "CFU", "target": "Jack Warner", "details": {"type": "Kickback", "label": "$1,400,000"}},
+		{"source": "CFU", "target": "Co-Conspirator #1", "details": {"type": "Kickback", "label": "$298,500"}},
+		{"source": "CFU", "target": "Co-Conspirator #1", "details": {"type": "Kickback", "label": "$205,000"}},
+		{"source": "CFU", "target": "Co-Conspirator #1", "details": {"type": "Kickback", "label": "$250,000"}}
+	]
+}

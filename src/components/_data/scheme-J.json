@@ -1,0 +1,46 @@
+{ 
+	"nodes" : [
+		{"id": "FIFA",						"details": {"type": "Federation"}},
+		{"id": "Traffic USA",					"details": {"type": "Commercial"}},	
+		{"id": "CFU",							"details": {"type": "Federation"}},
+		{"id": "Jeffrey Webb",				"details": {"type": "FIFA Member", "country": "Cayman Islands", "notes": "Received swimming pool & realty payoffs from Takkas, plus hefty bribe for commercial rights for CFU 2018 and 2022 World Cup qualifiers."}},
+
+		{"id": "Sports Marketing Co. C",	"details": {"type": "Commercial"}},
+		{"id": "Conspirator #13", 			"details": {"type": "Co-Conspirator", "country": "USA", "country2": "Brazil" }},
+		{"id": "Conspirator #20", 			"details": {"type": "Co-Conspirator", "notes": "Senior executive of the European parent of Sports Marketing Company C"}},
+		{"id": "Conspirator #21", 			"details": {"type": "Co-Conspirator", "notes": "Senior executive of a U.S. subsidiary of Sports Marketing Company C"}},
+
+		{"id": "Front Company A",				"details": {"type": "Corporation"}},
+		{"id": "Costas Takkas",				"details": {"type": "FIFA Member", "country": "United Kingdom", "country2": "Cayman Islands", "notes":"Also includes the \"Unknown Co-Conspirator\", an acquaintance of Takkas\"."}},
+		{"id": "Co-Conspirator #4",			"details": {"type": "Co-Conspirator"}},
+		{"id": "Co-Conspirator #22",			"details": {"type": "Co-Conspirator"}},
+		{"id": "Friend of Co-Conspirator #2",	"details": {"type": "Co-Conspirator"}}
+	],
+	"links" : [
+		{"source": "FIFA", "target": "CFU", 							"details": {"type": "Basic", "label": ""}},				
+		{"source": "CFU","target":  "Jeffrey Webb", 					"details": {"type": "Basic", "label": ""}},		
+		{"source": "FIFA", "target": "Costas Takkas", 					"details": {"type": "Basic", "label": ""}},		
+		{"source": "Traffic USA", "target":  "Co-Conspirator #4", 		"details": {"type": "Basic", "label": ""}},		
+
+		{"source": "Traffic USA","target":  "CFU", 						"details": {"type": "Marketing", "label": "$23,000,000"}},
+		{"source": "Traffic USA","target":  "Jeffrey Webb", 			"details": {"type": "Kickback", "label": "$3,000,000"}},
+		
+		{"source": "Sports Marketing Co. C", "target": "Traffic USA", "details": {"type": "Marketing", "label": "-"}},
+
+		{"source": "Sports Marketing Co. C", "target": "Conspirator #13", "details": {"type": "Basic", "label": ""}},
+		{"source": "Sports Marketing Co. C", "target": "Conspirator #20", "details": {"type": "Basic", "label": ""}},
+		{"source": "Sports Marketing Co. C", "target": "Conspirator #21", "details": {"type": "Basic", "label": ""}},
+
+		{"source": "Traffic USA", "target": "Front Company A", 			"details": {"type": "Kickback", "label": "$1,200,000"}},
+		
+		{"source": "Front Company A", "target": "Costas Takkas", 		"details": {"type": "Kickback", "label": "$750,000"}},
+		{"source": "Front Company A", "target": "Costas Takkas", 		"details": {"type": "Kickback", "label": "$250,000"}},
+		{"source": "Front Company A", "target": "Co-Conspirator #22", 	"details": {"type": "Kickback", "label": "$200,000"}},
+
+		{"source": "Traffic USA", "target": "Friend of Co-Conspirator #2", "details": {"type": "Kickback", "label": "$500,000"}},
+		{"source": "Friend of Co-Conspirator #2", "target": "Costas Takkas", "details": {"type": "Kickback", "label": "$500,000"}},
+		{"source": "Costas Takkas", "target": "Jeffrey Webb", 				"details": {"type": "Kickback", "label": "-"}},
+		{"source": "Costas Takkas", "target": "Jeffrey Webb", 				"details": {"type": "Kickback", "label": "-"}},
+		{"source": "Sports Marketing Co. C", "target": "Costas Takkas", "details": {"type": "Kickback", "label": "-"}}
+	]
+}

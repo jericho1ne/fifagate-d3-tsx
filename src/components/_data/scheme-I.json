@@ -1,0 +1,22 @@
+{ 
+	"nodes" : [
+		{"id": "FIFA",			"details":	{"type": "Federation"}},
+		{"id": "Co-Conspirator #7","details":	{"type": "FIFA Member", "country": "Qatar", "notes":"Mohamed Bin Hamman"}},
+		{"id": "Jack Warner",		"details":	{"type": "FIFA Member", "country": "Trinidad and Tobago"}},
+		{"id": "CFU members",		"details":	{"type": "FIFA Member"}}
+  ],
+	"links" : [
+		{"source": "FIFA", "target":  "Jack Warner", 			"details":	{"type": "Basic", "label": ""}},		
+		{"source": "FIFA", "target": "CFU members", 			"details":	{"type": "Basic", "label": ""}},		
+
+		{"source": "Co-Conspirator #7", "target":"Jack Warner","details":	{"type": "Meeting/Travel", "label": "$363,537.98"}},
+
+		{"source": "Jack Warner", "target": "CFU members", 		"details":	{"type": "Kickback", "label": "$40,000"}},
+		{"source": "Jack Warner", "target": "CFU members", 		"details":	{"type": "Meeting/Travel", "label": "$40,000"}},
+		{"source": "Jack Warner", "target": "CFU members", 		"details":	{"type": "Kickback", "label": "$40,000"}},
+		{"source": "Jack Warner", "target": "CFU members", 		"details":	{"type": "Meeting/Travel", "label": "$40,000"}},
+		{"source": "Jack Warner", "target": "CFU members", 		"details":	{"type": "Kickback", "label": "$40,000"}},
+		
+		{"source": "Co-Conspirator #7", "target": "Jack Warner", "details":	{"type": "Kickback", "label": "$1,211,980"}}
+	]
+}
