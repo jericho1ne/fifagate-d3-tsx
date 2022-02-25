@@ -17,7 +17,7 @@ const ForceGraph = () => {
           */}
           <ForceGraph2D
             graphData={context}
-            enablePanInteraction={false}
+            enablePanInteraction={true}
             enableZoomInteraction={true}
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.id;
