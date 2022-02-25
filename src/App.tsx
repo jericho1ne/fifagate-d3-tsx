@@ -6,7 +6,7 @@ import styles from './App.module.scss'
 
 function App() {
   return (
-    <div className={styles.mainContainer} style={{ backgroundColor: "#efefef"}} >
+    <div className={styles.mainContainer} >
       <Header title="FIFA Payoff Schemes, 1987-2014"></Header>
       <div className="schemes">
         <SchemeSwitcher />

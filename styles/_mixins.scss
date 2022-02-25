@@ -11,7 +11,7 @@
   transition: opacity 0.25s ease-in;
 
   &:hover {
-    opacity: 0.85;
+    opacity: 0.75;
   }
 }
 
@@ -19,4 +19,11 @@
   @media only screen and (max-width: 720px) {
     display: none;
   }
+}
+
+// Assumes that parent element is position: relative
+@mixin absCenter() {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }

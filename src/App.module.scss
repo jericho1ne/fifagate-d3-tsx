@@ -1,12 +1,13 @@
 @import "./styles/mixins";
 
-.App {
+.mainContainer {
   text-align: center;
   display: flex;
   flex-direction: column;
   width: auto;
   height: auto;
-  background-color: rgba(0,0,0,0.05);
+  background-color: #efefef;
+  min-height: 100vh;
 }
 
 button {

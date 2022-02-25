@@ -4,8 +4,9 @@
 .switcher {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
 
   button {
     @include btn();
@@ -19,18 +20,22 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: $documentMaxWidth;
+    min-width: $documentMinWidth;
     justify-content: center;
     margin: auto;
+    top: 80px;
+    @include absCenter();
+    z-index: 100;
   }
 
   &__graph {
     background-color: white;
     display: flex;
     justify-content: center;
-    margin: 2rem auto;
+    margin: auto;
     max-width: $documentMaxWidth;
-    max-height: 500px;
+    margin: 0 1rem;
+    max-height: 640px;
     border: 1px solid #bbb;
     border-radius: 10px;
     overflow: hidden;
