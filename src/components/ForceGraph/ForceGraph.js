@@ -18,7 +18,7 @@ const ForceGraph = () => {
           <ForceGraph2D
             graphData={context}
             enablePanInteraction={false}
-            enableZoomInteraction={false}
+            enableZoomInteraction={true}
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.id;
               const fontSize = 12/globalScale;
