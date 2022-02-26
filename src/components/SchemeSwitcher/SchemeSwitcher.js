@@ -1,10 +1,9 @@
-import { Component } from 'react'
+import { Component, useState, createContext } from 'react'
 import ForceGraph from '../ForceGraph'
 
 import LocalContext from '../../context/LocalContext';
 
 import styles from './SchemeSwitcher.module.scss'
-
 
 import schemeA from '../_data/scheme-A.json'
 import schemeB from '../_data/scheme-B.json'
@@ -34,48 +33,53 @@ const allSchemes = {
   "L": schemeL,
 }
 
-export default class SchemeSwitcher extends Component {
-  state = {
-    currentScheme: 'A',
-    currentSchemeDetails: schemeA,
-  }
+export const schemeContext = createContext({ currentSchemeDetails: schemeA })
 
-  async componentDidMount() {
-    //
-  }
+const SchemeSwitcher = () => {
+  const [state, setState] = useState({
+    currentScheme: 'A',
+    currentSchemeDetails: [{ 
+      "nodes": [...schemeA.nodes, ...schemeB.nodes],
+      "links": [...schemeA.links, ...schemeB.links],
+    }],
+  })
+
+  console.log([{ 
+    "nodes": [...schemeA.nodes, ...schemeB.nodes],
+    "links": [...schemeA.links, ...schemeB.links],
+  }])
+
 
   /**
    * @param {string} schemeLetter Single letter representing a scheme
    */
-  loadScheme = (schemeLetter) => {
-    this.setState({ 
+  const loadScheme = (schemeLetter) => {
+    setState({ 
       currentScheme: schemeLetter,
       currentSchemeDetails: allSchemes[schemeLetter],
     })
   } 
 
-  render() {
+  return (
+    <>
+      <div className={styles.switcher} >
+        <div className={styles.switcher__nav}>
+          {Object.keys(allSchemes).map((letter, i) => (
+            <button 
+              key={`${letter}-${i}`} 
+              onClick={() => loadScheme(letter)} 
+              data-scheme={letter}>{`Scheme ${letter}`}</button>
+          ))}
 
-    return (
-      <LocalContext.Provider 
-        value={this.state.currentSchemeDetails}
-      >
-        <div className={styles.switcher} >
-          <div className={styles.switcher__nav}>
-            {Object.keys(allSchemes).map((letter, i) => (
-              <button 
-                key={`${letter}-${i}`} 
-                onClick={() => this.loadScheme(letter)} 
-                data-scheme={letter}>{`Scheme ${letter}`}</button>
-            ))}
-
-          </div>
-          <div className={styles.switcher__graph}>
-            <ForceGraph />
-          </div>
         </div>
-      </LocalContext.Provider>
-    )// end Return
-  } // end render
+        <div className={styles.switcher__graph}>
+          <ForceGraph />
+        </div>
+      </div>
+    </>
+  )// end Return
 
-} // end ListView
+}
+
+
+export default SchemeSwitcher
