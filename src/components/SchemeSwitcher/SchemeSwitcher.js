@@ -33,8 +33,8 @@ const allSchemes = {
   "K": s_K,
   "L": s_L,
   "ALL": { 
-    "nodes": [...s_A.nodes, ...s_B.nodes, ...s_C.nodes, ...s_D.nodes, ...s_E.nodes, ...s_F.nodes, ...s_G.nodes, ...s_I.nodes, ...s_J.nodes, ...s_K.nodes, ...s_L.nodes],
-    "links": [...s_A.links, ...s_B.links, ...s_C.links, ...s_D.links, ...s_E.links, ...s_F.links, ...s_G.links, ...s_I.links, ...s_J.links, ...s_K.links, ...s_L.links],
+    "nodes": [...s_A.nodes, ...s_B.nodes, ...s_D.nodes, ...s_E.nodes, ...s_F.nodes, ...s_G.nodes, ...s_H.nodes, ...s_I.nodes, ...s_J.nodes, ...s_K.nodes, ...s_L.nodes],
+    "links": [...s_A.links, ...s_B.links, ...s_D.links, ...s_E.links, ...s_F.links, ...s_G.links, ...s_I.links, ...s_I.links, ...s_J.links, ...s_K.links, ...s_L.links],
   },
 }
 
@@ -44,9 +44,8 @@ export default class SchemeSwitcher extends Component {
     currentSchemeDetails: s_A,
   }
 
-  async componentDidMount() {
-   
-    
+  async componentDidMount() { 
+   //
   }
 
   /**
@@ -58,6 +57,8 @@ export default class SchemeSwitcher extends Component {
       currentSchemeDetails: allSchemes[schemeLetter],
     })
   } 
+
+  is
 
   render() {
 
@@ -71,7 +72,11 @@ export default class SchemeSwitcher extends Component {
               <button 
                 key={`${letter}-${i}`} 
                 onClick={() => this.loadScheme(letter)} 
-                data-scheme={letter}>{`Scheme ${letter}`}</button>
+                data-scheme={letter}>{(
+                  letter !== "ALL"
+                    ? `Scheme ${letter}`
+                    : `Show All`)
+                }</button>
             ))}
 
           </div>

@@ -5,14 +5,15 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  justify-content: center;
   padding: 0;
   height: 100%;
 
   button {
     @include btn();
     box-shadow: 2px 2px 5px rgba(0,0,0,.25);
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
+    margin-top: 0.35rem;
+    margin-left: 0.35rem;
   }
 
   &__nav {
@@ -23,19 +24,22 @@
     min-width: $documentMinWidth;
     justify-content: center;
     margin: auto;
-    top: 80px;
+    top: 50px;
     @include absCenter();
     z-index: 100;
   }
 
   &__graph {
-    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
+    background-color: white;
     margin: auto;
-    max-width: $documentMaxWidth;
-    margin: 0 1rem;
-    max-height: 640px;
+    padding: 0;
     border: 1px solid #bbb;
     border-radius: 10px;
     overflow: hidden;

@@ -5,6 +5,10 @@ import LocalContext from "../../context/LocalContext"
 import legend from '../_data/legend.json'
 
 const ForceGraph = () => {
+  // function dothis() {
+  //   console.log("here")
+  //   thing.select('svg').selectAll('*').remove()
+  // }
 
   return (
     <LocalContext.Consumer>
@@ -18,7 +22,14 @@ const ForceGraph = () => {
           <ForceGraph2D
             graphData={context}
             enablePanInteraction={true}
+            enablePointerInteraction={true}
             enableZoomInteraction={true}
+            minZoom={3}
+            maxZoom={100}
+            // nodeStrokeWidth={10}
+            // nodeRadius={10}
+            // linkStrokeWidth={4}
+            // charge={-10}
             nodeCanvasObject={(node, ctx, globalScale) => {
               const label = node.id;
               const fontSize = 12/globalScale;
@@ -27,15 +38,15 @@ const ForceGraph = () => {
               const textWidth = ctx.measureText(label).width;
               const bckgDimensions = 
                 [textWidth, fontSize].map(n => n + fontSize * .85); // some padding
-  
-              ctx.nodeRadius = 20
-              ctx.linkStrokeWidth = 10
-              ctx.linkDistance = 550
+
+              // Label rectangle, bg color
               const bgColor = legend.actors[node.details.type].color
-
               ctx.fillStyle = `${bgColor}`;
-
-              ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
+              ctx.fillRect(
+                node.x - bckgDimensions[0] / 2, 
+                node.y - bckgDimensions[1] / 2, 
+                ...bckgDimensions
+              );
   
               ctx.textAlign = 'center';
               ctx.textBaseline = 'middle';
@@ -47,11 +58,13 @@ const ForceGraph = () => {
               node.__bckgDimensions = bckgDimensions; 
             }}
             nodePointerAreaPaint={(node, color, ctx) => {
-              ctx.fillStyle = 'rgba(0, 0, 0, 0.95)';
+              ctx.fillStyle = 'rgba(255, 0, 0, 0.95)'
+
               const bckgDimensions = node.__bckgDimensions;
               bckgDimensions && ctx.fillRect(
                 node.x - bckgDimensions[0] / 2, 
-                node.y - bckgDimensions[1] / 2, ...bckgDimensions
+                node.y - bckgDimensions[1] / 2,
+                ...bckgDimensions
               );
             }}
           />
