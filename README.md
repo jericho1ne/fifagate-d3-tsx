@@ -1,4 +1,9 @@
 # Fifagate - D3 Force Graph
 
-Shiny new React tsx app
+Demo: https://fifagate.netlify.app/
+
+
+( Shiny new version of https://fifagate.com/ )
+
+
 
