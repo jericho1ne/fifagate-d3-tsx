@@ -1,6 +1,5 @@
 <template>
   <div class="custom-page">
-
     <!-- Scheme switcher -->
     <div class="scheme-switcher">
       <RadioSwitch v-for="(option, idx) in radioOptions" 
@@ -22,7 +21,12 @@
         </div>
       </RadioSwitch>
     </div>
-
+    
+    <div class="text-panel">
+      <h3 class="graph-title">{{ graph.title }}</h3>
+      <p v-if="graph.description !== ''" class="graph-description">{{ graph.description }}</p>
+    </div>
+    
     <!-- D3 force graph -->
     <GraphlyD3 
       class="graphly-parent" 
@@ -40,19 +44,16 @@
       @link-click="(e, d) => console.log(d.id)" 
     />
   </div>
-  <PageFooter />
 </template>
 
 <script setup lang="ts">
 import type { ForceSimulation, Graph, Shape } from "@livereader/graphly-d3"
 import GraphlyD3 from "@livereader/graphly-d3/component/vue3";
 import "@livereader/graphly-d3/style.css";
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 
-import PageFooter from './PageFooter.vue'
-// import { KRadio } from '@kong/kongponents'
+// import PageFooter from './PageFooter.vue'
 import RadioSwitch from './RadioSwitch.vue'
-import '@kong/kongponents/dist/style.css'
 
 // import { TemplateAPI } from "@livereader/graphly-d3"
 
@@ -64,9 +65,19 @@ const graphly = ref(null)
 const simulation = computed<ForceSimulation>(() => graphly?.value.simulation)
 
 // TODO: type as Ref<Graph>
-const graphData = ref({nodes:[], links: []})
+const graphData = ref()
+const graphTitle = ref('')
+const graphDescription = ref(null)
+
+const graph = reactive({
+  data: {nodes:[], links: []},
+  title: '',
+  description: ''
+})
+
 
 const currentScheme = ref('A')
+const chosenScheme =  computed(() => schemes.find((e) => e.id === currentScheme.value))
 
 const radioOptions = schemes.map((scheme: any) => {
   return {
@@ -81,7 +92,6 @@ const Actors = new Map(Object.entries(legend.actors))
 // const nodeShape:Shape = TemplateAPI.Shape.Circle(48)
 
 const handleChange = (): void => {
-  // debugger
 }
 
 const transformToD3 = (schemeData) => {
@@ -162,20 +172,49 @@ const transformToD3 = (schemeData) => {
 // }
 
 watch(currentScheme, () => {
-  const chosenScheme = schemes.find((e) => e.id === currentScheme.value)
-  
-  graphData.value = transformToD3(chosenScheme.content as any)
-  simulation.value.render(graphData.value)
+  graph.title = chosenScheme.value.title
+  graph.description = chosenScheme.value?.description || ''
+  graph.data = transformToD3(chosenScheme.value.content as any)
+  simulation.value.render(graph.data)
 })
 
 onMounted(() => {
-  graphData.value = transformToD3(schemes[0].content)
-  simulation.value.render(graphData.value)
+  graph.title = schemes[0].title
+  graph.description = schemes[0]?.description || ''
+  graph.data = transformToD3(schemes[0].content)
+  simulation.value.render(graph.data)
 })
 
 </script>
 
 <style lang="scss" scoped>
+
+.text-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 16px 4px;
+  margin: 16px 0;
+  
+  width: 100%;
+  .graph-title {
+    display: flex;
+    font-weight: 600;
+    color: #222;
+    font-size: 24px;
+    line-height: 28px;
+    width: 38ch;
+  }
+  .graph-description {
+    display: flex;
+    margin-left: 16px;
+    color: #444;
+    line-height: 28px;
+    font-size: 14px;
+  }  
+}
+
 .scheme-switcher {
   display: grid;
   grid-auto-rows: 1fr;

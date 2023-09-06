@@ -31,13 +31,15 @@ import iconL from '../_data/icons/iconL.svg'
 export const schemes = [
   {
     "id": "A",
-    "title": "CONMEBOL Copa America Scheme.  Bribes made between 1987-2011 for commercial and broadcast rights.  Kickback recipients: Rafael Esquivel, (Venezuelan soccer federation), Nicolas Leoz (CONMEBOL), and Alejandro Burzaco (Sports Marketing Company CEO).",
+    "title": "CONMEBOL Copa America Scheme",
+    "description": "Bribes made between 1987-2011 for commercial and broadcast rights.  Kickback recipients: Rafael Esquivel, (Venezuelan soccer federation), Nicolas Leoz (CONMEBOL), and Alejandro Burzaco (Sports Marketing Company CEO).",
     "content": { ...schemeA },
     "icon": iconA
   },
   {
     "id": "B",
-    "title": "CONCACAF Gold Cup Scheme.  Traffic obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of the Gold Cup. Kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US > Cayman Islands > Trinidad between 1993-2000.",
+    "title": "CONCACAF Gold Cup Scheme",
+    "description": "Traffic obtains exclusive worldwide commercial rights for 1996, 1998 & 2000 editions of the Gold Cup. Kickbacks to Co-Conspirator 1 and Jack Warner are wired from the US > Cayman Islands > Trinidad between 1993-2000.",
     "content": { ...schemeB },
     "icon": iconB
   },
