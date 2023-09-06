@@ -30,9 +30,9 @@
       :dark="true" 
       height="100%" 
       remoteOrigin="/templates" 
-      :envGravity="100"
+      :envGravity="0"
       :linkDistance="350" 
-      :animationDuration="650" 
+      :animationDuration="-1" 
       :draggableNodes="true" 
       :zoomEnabled="false" 
       :zoomScaleExtent="[0.1, 1.5]"
@@ -109,9 +109,16 @@ const transformToD3 = (schemeData) => {
     return item
   })
   
+  const transformedLinks = links.map((item: any) => {
+    return Object.assign(item, {
+      directed: true,
+      strength: "weak"
+    })
+  })
+  
   return {
     nodes: transformedNodes,
-    links
+    links: transformedLinks
   }
 }
 
