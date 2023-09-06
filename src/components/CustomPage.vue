@@ -3,22 +3,24 @@
 
     <!-- Scheme switcher -->
     <div class="scheme-switcher">
-      <KRadio v-for="(option, idx) in radioOptions" 
+      <RadioSwitch v-for="(option, idx) in radioOptions" 
         :key="idx" 
+        :radio-id="`radio-${idx}`"
         v-model="currentScheme" 
         class="scheme-radio"
         :data-testid="`radio-${option.value}`" 
         :selected-value="option.value" type="card"
+        @change="handleChange"
       >
         <img 
           :alt="option.label"
           class="scheme-icon" 
           :src="option.icon"
         >
-        <div class="k-radio-label">
+        <div class="text-label">
           {{ option.label }}
         </div>
-      </KRadio>
+      </RadioSwitch>
     </div>
 
     <!-- D3 force graph -->
@@ -28,11 +30,11 @@
       :dark="true" 
       height="100%" 
       remoteOrigin="/templates" 
-      :envGravity="200"
-      :linkDistance="375" 
-      :animationDuration="350" 
+      :envGravity="100"
+      :linkDistance="350" 
+      :animationDuration="650" 
       :draggableNodes="true" 
-      :zoomEnabled="true" 
+      :zoomEnabled="false" 
       :zoomScaleExtent="[0.1, 1.5]"
       @node-click="(e, d) => console.log(d.id)" 
       @link-click="(e, d) => console.log(d.id)" 
@@ -45,10 +47,11 @@
 import type { ForceSimulation, Graph, Shape } from "@livereader/graphly-d3"
 import GraphlyD3 from "@livereader/graphly-d3/component/vue3";
 import "@livereader/graphly-d3/style.css";
-import { computed, onMounted, ref, Ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 import PageFooter from './PageFooter.vue'
-import { KRadio } from '@kong/kongponents'
+// import { KRadio } from '@kong/kongponents'
+import RadioSwitch from './RadioSwitch.vue'
 import '@kong/kongponents/dist/style.css'
 
 // import { TemplateAPI } from "@livereader/graphly-d3"
@@ -61,7 +64,7 @@ const graphly = ref(null)
 const simulation = computed<ForceSimulation>(() => graphly?.value.simulation)
 
 // TODO: type as Ref<Graph>
-const graphData = ref(null)
+const graphData = ref({nodes:[], links: []})
 
 const currentScheme = ref('A')
 
@@ -76,6 +79,10 @@ const radioOptions = schemes.map((scheme: any) => {
 const Actors = new Map(Object.entries(legend.actors))
 
 // const nodeShape:Shape = TemplateAPI.Shape.Circle(48)
+
+const handleChange = (): void => {
+  // debugger
+}
 
 const transformToD3 = (schemeData) => {
   const { nodes, links } = schemeData
@@ -94,7 +101,7 @@ const transformToD3 = (schemeData) => {
     Object.assign(item, {
       shape: {
         type: "hexagon",
-        scale: 1.05,
+        scale: 1,
         url: "https://cdn.graphly.dev/@jason-rietzke/demo-hexagon/latest",
       }
     })
@@ -170,23 +177,17 @@ onMounted(() => {
   width: 100%;
   row-gap: 8px;
   margin-bottom: 10px;
-  .scheme-radio {
-    justify-content: center;
-    min-width: 100px;
-    font-size: 9px;
-
+  
+  .scheme-radio {    
+    .text-label {
+      margin-top: 4px;
+    }
     .scheme-icon {
       width: 60px;
       height: auto;
       display: flex;
       flex-grow: 1;
       margin: auto;
-    }
-
-    .k-radio-label {
-      margin-top: 2px;
-      justify-content: center;
-      text-align: center;
     }
 
     &:deep(label) {
@@ -204,7 +205,7 @@ onMounted(() => {
   padding: 0.5rem 1rem;
   width: 100%;
   height: 100%;
-  font-size: .85rem;
+  // font-size: .85rem;
   color: #bababa;
 
   .graphly-parent {

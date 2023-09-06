@@ -1,5 +1,3 @@
-import styles from './Footer.module.scss'
-
 <template>
   <footer class="page-footer">
     <span>copyright 2023 </span>
