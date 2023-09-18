@@ -133,13 +133,13 @@ $shadow-color: rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 100px;
+  min-width: 80px;
   font-size: 9px;  
   background-color: #fff;
   border: 1px solid $border-color-card;
   border-radius: 8px;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
 
   .radio-label {
     width: 100%;

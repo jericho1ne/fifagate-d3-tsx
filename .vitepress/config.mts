@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "FIFA Gate D3",
-  description: "A VitePress Site",
+  title: "FIFAGate",
+  description: "2015 FIFA corruption case",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -21,7 +21,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/jericho1ne/fifagate-d3-tsx' }
+      { icon: 'github', link: 'https://github.com/jericho1ne/fifagate-d3' }
     ]
   }
 })

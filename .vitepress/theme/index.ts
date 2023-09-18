@@ -6,7 +6,7 @@ import './style.scss'
 // Pages
 
 // Components
-import CustomPage from '../../src/components/CustomPage.vue'
+import CustomPage from '../../src/pages/CustomPage.vue'
 
 export default {
   extends: Theme,

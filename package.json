@@ -7,15 +7,16 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "dev": "yarn docs:dev"
   },
   "devDependencies": {
     "sass": "^1.66.1",
     "vitepress": "^1.0.0-rc.10"
   },
   "dependencies": {
-    "@livereader/graphly-d3": "^1.5.2",
     "@vitejs/plugin-vue": "^4.3.4",
+    "d3": "^7.8.5",
     "vue-router": "4"
   }
 }
