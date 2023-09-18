@@ -182,7 +182,9 @@ onMounted(() => {
   padding: 0.5rem 1rem;
   width: 100%;
   height: 100%;
-  color: #bababa;
+  color: #333;
+  background: #fdfdfd;
+  padding-top: 20px;
 }
 </style>
 

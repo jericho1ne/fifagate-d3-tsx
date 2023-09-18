@@ -66,7 +66,7 @@ const getLinkClass = (type) => {
 const d3ForceSim = () => {
   if (!nodes.value.length || !links.value.length) return
   
-  var width = 800, height = 600
+  var width = 1200, height = 800
  
   const N       = d3.map(nodes.value, d => d.id).map(intern)
   const LS      = d3.map(links.value, ({source}) => source).map(intern)
@@ -212,6 +212,8 @@ watch(props.modelValue, () => {
   overflow: hidden;
   
   :deep(svg) {
+    width: 100%;
+    
     text {
       pointer-events: none;
       text-shadow: 1px 0px 7px rgba(0,0,0,.4);
