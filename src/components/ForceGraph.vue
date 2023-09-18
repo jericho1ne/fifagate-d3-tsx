@@ -208,7 +208,8 @@ watch(props.modelValue, () => {
   margin: 0;
   border: 1px solid gray;
   border-radius: 8px;
-  min-height: 300px;
+  min-height: 360px;
+  height: auto;
   overflow: hidden;
   
   :deep(svg) {
