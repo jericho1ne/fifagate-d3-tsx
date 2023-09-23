@@ -45,16 +45,15 @@ import ForceGraph from '../components/ForceGraph.vue'
 import legend from '../_data/legend.json'
 import { schemes } from '../_data/schemes'
 
-// TODO: type as Ref<Graph>
-const graphData = ref()
-const graphTitle = ref('')
-const graphDescription = ref(null)
+
 const Actors = new Map(Object.entries(legend.actors))
 
+// TODO: define Graph interface
 const graph = reactive({
   data: {nodes:[], links: []},
   title: '',
   description: '',
+  
   // The Conspirators and Bribe Types are static; used for the legend
   Conspirators: Actors,
   BribeTypes: new Map(Object.entries(legend.bribeTypes)),

@@ -1,30 +1,8 @@
 <template>
   <div class="chart-container">
-    <div class="chart-legend">
-      <div class="legend-header">Conspirators</div>
-      <!-- Conspirator Details -->
-      <ul class="legend-list">
-        <li
-          v-for="[key, item] in Conspirators"
-          :key="`${key}-{idx}`"
-        >
-          <div class="legend-bubble" :style="{background: item.color}"/>
-          <div class="legend-text">{{ key }}</div>
-        </li>
-      </ul>
-      
-      <div class="legend-header">Bribe Types</div>
-      <!-- Bribe Type Details -->
-      <ul class="legend-list">
-        <li
-          v-for="[key, item] in schemeBribes"
-          :key="`${key}-{idx}`"
-        >
-          <div class="legend-square" :style="{background: item.color}"/>
-          <div class="legend-text">{{ key }}</div>
-        </li>
-      </ul>
-    </div>
+    <Legend 
+      v-model="legendData"
+    />
     <div 
       id="d3-forcegraph" 
       class="chart-parent"
@@ -35,7 +13,8 @@
 
 <script setup lang="ts">
 import * as d3 from 'd3'
-import { computed, onMounted, onUnmounted, PropType, toRef, watch } from 'vue'
+import { computed, PropType, reactive, toRef, watch } from 'vue'
+import Legend from '../components/Legend.vue'
 
 interface ForceGraphData {
   nodes: Array<any>
@@ -72,7 +51,8 @@ const props = defineProps({
 const chartData = toRef(props, 'modelValue')
 const links = computed(() => chartData.value.data?.links)
 const nodes = computed(() => chartData.value.data?.nodes)
-const Conspirators = computed(() => chartData.value.Conspirators)
+
+// const Conspirators = computed(() => chartData.value.Conspirators)
 const BribeTypes = computed(() => chartData.value.BribeTypes)
 
 // Dynamically build the Bribe types present in each Scheme
@@ -87,6 +67,12 @@ const schemeBribes = computed(() => {
   }
   
   return uniqueBribesFull
+})
+
+// List items to be displayed by Legend component
+const legendData = reactive({
+  conspirators: chartData.value.Conspirators,
+  bribes: schemeBribes
 })
 
 const drag = (simulation) => {    
@@ -162,7 +148,6 @@ const d3ForceSim = () => {
     .force('center', d3.forceCenter(width / 2, height / 2))
     .stop()
   
-    
   // Create link paths between nodes, hiding the actual line
   const link = chartParent.append("g")
     .attr("stroke-opacity", 0) // Increase opacity to debug graph
@@ -248,9 +233,6 @@ const d3ForceSim = () => {
   }
 }
 
-onMounted(() => {
-})
-
 watch(props.modelValue, () => {
   d3.select('#d3-forcegraph').selectAll('*').remove()
   d3ForceSim()
@@ -258,48 +240,6 @@ watch(props.modelValue, () => {
 </script>
 
 <style lang="scss" scoped>
-.chart-legend {
-  border-radius: 8px;
-  background: radial-gradient(circle at 18.7% 37.8%, rgba(240, 240, 240, 0.45) 0%, rgba(225, 234, 238, 0.45) 70%);
-  padding: 20px;
-  position: absolute;
-  min-width: 200px;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 20px;
-  width: auto;
-  
-  .legend-header {
-    color: #777;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px; 
-  }
-  
-  ul.legend-list {
-    list-style-type: none;
-    margin-bottom: 12px;
-    
-    li {
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      column-gap: 8px;
-      .legend-bubble {
-        border-radius: 50%;
-        width: 12px;
-        height: 12px;
-      }
-      .legend-square {
-        border-radius: 1px;
-        width: 24px;
-        height: 6px;
-      }
-    }
-  }
-}
-
 .chart-parent { 
   width: 100%; 
   padding: 0; 
