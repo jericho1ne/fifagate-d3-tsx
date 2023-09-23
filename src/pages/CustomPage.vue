@@ -49,7 +49,7 @@ import { schemes } from '../_data/schemes'
 const Actors = new Map(Object.entries(legend.actors))
 
 // TODO: define Graph interface
-const graph = reactive({
+let graph = reactive({
   data: {nodes:[], links: []},
   title: '',
   description: '',

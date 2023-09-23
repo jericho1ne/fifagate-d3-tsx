@@ -70,7 +70,7 @@ const schemeBribes = computed(() => {
 })
 
 // List items to be displayed by Legend component
-const legendData = reactive({
+let legendData = reactive({
   conspirators: chartData.value.Conspirators,
   bribes: schemeBribes
 })
