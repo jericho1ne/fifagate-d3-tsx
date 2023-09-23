@@ -49,11 +49,15 @@ import { schemes } from '../_data/schemes'
 const graphData = ref()
 const graphTitle = ref('')
 const graphDescription = ref(null)
+const Actors = new Map(Object.entries(legend.actors))
 
 const graph = reactive({
   data: {nodes:[], links: []},
   title: '',
-  description: ''
+  description: '',
+  // The Conspirators and Bribe Types are static; used for the legend
+  Conspirators: Actors,
+  BribeTypes: new Map(Object.entries(legend.bribeTypes)),
 })
 
 const currentScheme = ref('A')
@@ -66,11 +70,6 @@ const radioOptions = schemes.map((scheme: any) => {
     icon: scheme.icon
   }
 })
-
-const Actors = new Map(Object.entries(legend.actors))
-
-console.log(Actors)
-// const nodeShape:Shape = TemplateAPI.Shape.Circle(48)
 
 const handleChange = (): void => {
 }

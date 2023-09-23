@@ -1,8 +1,36 @@
 <template>
-  <div 
-    id="d3-forcegraph" 
-    class="chart-parent"
-  />
+  <div class="chart-container">
+    <div class="chart-legend">
+      <div class="legend-header">Conspirators</div>
+      <!-- Conspirator Details -->
+      <ul class="legend-list">
+        <li
+          v-for="[key, item] in Conspirators"
+          :key="`${key}-{idx}`"
+        >
+          <div class="legend-bubble" :style="{background: item.color}"/>
+          <div class="legend-text">{{ key }}</div>
+        </li>
+      </ul>
+      
+      <div class="legend-header">Bribe Types</div>
+      <!-- Bribe Type Details -->
+      <ul class="legend-list">
+        <li
+          v-for="[key, item] in schemeBribes"
+          :key="`${key}-{idx}`"
+        >
+          <div class="legend-square" :style="{background: item.color}"/>
+          <div class="legend-text">{{ key }}</div>
+        </li>
+      </ul>
+    </div>
+    <div 
+      id="d3-forcegraph" 
+      class="chart-parent"
+    />
+  </div>
+  
 </template>
 
 <script setup lang="ts">
@@ -14,8 +42,22 @@ interface ForceGraphData {
   links: Array<any>
 }
 
+interface Conspirator {
+  icon: String
+  unicode: String
+  color: String
+}
+
+interface Bribe {
+  icon: String
+  unicode: String
+  color: String
+}
+
 interface D3ChartData {
   data: ForceGraphData
+  Conspirators: Array<Conspirator>
+  BribeTypes: Array<Bribe>
   title: String
   description: String
 }
@@ -30,6 +72,22 @@ const props = defineProps({
 const chartData = toRef(props, 'modelValue')
 const links = computed(() => chartData.value.data?.links)
 const nodes = computed(() => chartData.value.data?.nodes)
+const Conspirators = computed(() => chartData.value.Conspirators)
+const BribeTypes = computed(() => chartData.value.BribeTypes)
+
+// Dynamically build the Bribe types present in each Scheme
+const schemeBribes = computed(() => {
+  const bribesInScheme = links.value.map((link) => link.details.type)
+  const uniqueBribes = [...new Set(bribesInScheme)]
+  
+  const uniqueBribesFull = new Map()
+  // Loop over unique bribesour static legend, plucking the bribe info relevant to current scheme
+  for (let item of uniqueBribes) {
+    uniqueBribesFull.set(item, BribeTypes.value.get(item))
+  }
+  
+  return uniqueBribesFull
+})
 
 const drag = (simulation) => {    
   const dragstarted = (event) => {
@@ -82,8 +140,6 @@ const d3ForceSim = () => {
     target: LT[i],
     details: JSON.parse(JSON.stringify(_.details))
   }))
-
-  // console.warn(" > mLinks >", mLinks)
   
   // Construct the forces, start the simulation
 	const forceLink = d3.forceLink(mLinks).id(( {index: i} ) => N[i]);
@@ -202,6 +258,48 @@ watch(props.modelValue, () => {
 </script>
 
 <style lang="scss" scoped>
+.chart-legend {
+  border-radius: 8px;
+  background: radial-gradient(circle at 18.7% 37.8%, rgba(240, 240, 240, 0.45) 0%, rgba(225, 234, 238, 0.45) 70%);
+  padding: 20px;
+  position: absolute;
+  min-width: 200px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: auto;
+  
+  .legend-header {
+    color: #777;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px; 
+  }
+  
+  ul.legend-list {
+    list-style-type: none;
+    margin-bottom: 12px;
+    
+    li {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      column-gap: 8px;
+      .legend-bubble {
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+      }
+      .legend-square {
+        border-radius: 1px;
+        width: 24px;
+        height: 6px;
+      }
+    }
+  }
+}
+
 .chart-parent { 
   width: 100%; 
   padding: 0; 

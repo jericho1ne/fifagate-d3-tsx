@@ -47,7 +47,7 @@
     }
   },
   
-  "vectorTypes": {
+  "bribeTypes": {
     "Basic" : { 
       "icon"  : "fa-link", 
       "unicode": "\uf0c1",

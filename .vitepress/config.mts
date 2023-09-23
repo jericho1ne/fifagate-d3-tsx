@@ -11,15 +11,6 @@ export default defineConfig({
       { text: 'Demo', link: '/demo' }
     ],
 
-    sidebar: [
-      {
-        text: 'Demo',
-        items: [
-          { text: 'Fifagate force graph', link: '/demo' },
-        ]
-      }
-    ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/jericho1ne/fifagate-d3' }
     ]
